@@ -20,7 +20,7 @@ SNIPER          := "3"      ; Selecting a sniper rifle
 THROWABLE       := "5"      ; Selecting a throwable
 HEAVY_WEAPON    := "4"      ; Selecting a heavy weapon
 INT_MENU        := "M"      ; Opening the interaction menu
-WEAPON_WHEEL    := "Tab"    ; Opening the weapon wheel
+WEAPON_WHEEL    := "Tab"    ; Opening and closing the weapon wheel
 AIRCRAFT_SLOW   := "+"      ; Aircraft brake, rebind
 AIRCRAFT_BRAKE  := "s"      ; Aircraft brake, primary
 

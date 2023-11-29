@@ -86,12 +86,12 @@ JET_BRAKE:
  */
 SOLO_LOBBY:
     SoundPlay *48
-    Process_Suspend("GTA5.exe")
+    Suspend_Process("GTA5.exe")
     
     Sleep, 8000
 
     SoundPlay *16
-    Process_Resume("GTA5.exe")
+    Resume_Process("GTA5.exe")
 
     Return
 
@@ -102,7 +102,7 @@ SUSPEND_KEYS:
     Suspend
 
     ; plays a varying sound depending on if the script was suspended or unsuspended:
-    SoundBeep, (A_IsSuspended ? 200 : 400), 400, 10 
+    SoundBeep, (A_IsSuspended ? 180 : 360), 400, 10 
 
     Return
 

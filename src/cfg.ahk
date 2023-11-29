@@ -25,7 +25,7 @@ SetMouseDelay, -1
 SetDefaultMouseSpeed, 0
 SetWorkingDir %A_ScriptDir%
 
-;;; HOTKEY MAPPING: (do not touch!)
+;;; HOTKEY FUNCTION MAPPING: (necessary boilerplate, do not touch!)
 
 Hotkey, %BST%, BST
 Hotkey, %AMMO%, AMMO

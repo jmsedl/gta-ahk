@@ -6,14 +6,14 @@
  *  Returns -1 if unsuccessful.
  */
 Suspend_Process(name_or_pid) {
-    pid := (InStr(name_or_pid, ".")) ? ProcExist(name_or_pid) : name_or_pid
+    pid := (InStr(name_or_pid, ".")) ? Process_Exists(name_or_pid) : name_or_pid
     handle := DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
 
     If !handle
         Return -1
 
-    DllCall("ntdll.dll\NtSuspendProcess", "Int", h)
-    DllCall("CloseHandle", "Int", h)
+    DllCall("ntdll.dll\NtSuspendProcess", "Int", handle)
+    DllCall("CloseHandle", "Int", handle)
 }
 
 /**
@@ -21,14 +21,14 @@ Suspend_Process(name_or_pid) {
  *  Returns -1 if unsuccessful.
  */
 Resume_Process(name_or_pid) {
-    pid := (InStr(name_or_pid, ".")) ? ProcExist(name_or_pid) : name_or_pid
+    pid := (InStr(name_or_pid, ".")) ? Process_Exists(name_or_pid) : name_or_pid
     handle := DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
 
     If !handle
         Return -1
 
-    DllCall("ntdll.dll\NtResumeProcess", "Int", h)
-    DllCall("CloseHandle", "Int", h)
+    DllCall("ntdll.dll\NtResumeProcess", "Int", handle)
+    DllCall("CloseHandle", "Int", handle)
 }
 
 /**
