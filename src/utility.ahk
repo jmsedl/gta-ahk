@@ -5,11 +5,11 @@
  *  Suspends a process by name or by PID.
  *  Returns -1 if unsuccessful.
  */
-Process_Suspend(name_or_pid) {
+Suspend_Process(name_or_pid) {
     pid := (InStr(name_or_pid, ".")) ? ProcExist(name_or_pid) : name_or_pid
-    h := DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+    handle := DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
 
-    If !h
+    If !handle
         Return -1
 
     DllCall("ntdll.dll\NtSuspendProcess", "Int", h)
@@ -20,11 +20,11 @@ Process_Suspend(name_or_pid) {
  *  Resumes a process.
  *  Returns -1 if unsuccessful.
  */
-Process_Resume(name_or_pid) {
+Resume_Process(name_or_pid) {
     pid := (InStr(name_or_pid, ".")) ? ProcExist(name_or_pid) : name_or_pid
-    h := DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+    handle := DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
 
-    If !h
+    If !handle
         Return -1
 
     DllCall("ntdll.dll\NtResumeProcess", "Int", h)
@@ -34,7 +34,7 @@ Process_Resume(name_or_pid) {
 /**
  *  Checks if a process exists.
  */
-ProcExist(name = "") {
+Process_Exists(name = "") {
     Process, Exist, % (name = "") ? DllCall("GetCurrentProcessID") : name
 
     Return Errorlevel

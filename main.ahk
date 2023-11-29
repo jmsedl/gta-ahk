@@ -26,7 +26,7 @@ AIRCRAFT_BRAKE  := "s"      ; Aircraft brake, primary
 
 ;;; GLOBAL VARIABLES:
 
-global hvyWeapons := 18 ; set here the number of loops to do in the ammo buy macro (higher = slower but more reliable).
+global reloadLoop := 18 ; set here the number of loops to do in the ammo buy macro (higher = slower but more reliable).
 
 ;;; DEPENDENCIES:
 

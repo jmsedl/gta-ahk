@@ -11,7 +11,7 @@ BST:
 
 /**
  *  Macro that buys ammo from the interaction menu.
- *  Uses the hvyWeapons variable to determine number of loops.
+ *  Uses the reloadLoop variable to determine number of loops.
  *  Assumes you're in a CEO / MC.
  */
 AMMO:
@@ -19,7 +19,7 @@ AMMO:
     Sleep, 100
     Send, {Blind}{Down 3}{Enter}{Down 5}{Enter}{Up}
 
-    Loop, %hvyWeapons%
+    Loop, %reloadLoop%
         Send, {Blind}{Enter}{Up 2}
     
     Send, {Blind}{Enter}{%INT_MENU%}
